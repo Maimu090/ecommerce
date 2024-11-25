@@ -1,6 +1,7 @@
 import './Category.css'
+import Input from '../../components/Input';
 
-function Category() {
+function Category({handleChange}) {
     return <div>
         <h2 className='sidebar-title'>
             Category
@@ -8,29 +9,14 @@ function Category() {
 
 
         <div>
-            <label className="sidebar-label-container">
-                <input type="radio"  name="test" />
-                <span className="checkmark"></span> All
-            </label>
+           
+           <label className="sidebar-label-container">
+            <input onChange={handleChange} type="radio" value={""} name="test" />
+            <span className="checkmark"></span>All
+           </label>
 
-            <label className="sidebar-label-container">
-                <input type="radio"  name="test" />
-                <span className="checkmark"></span> Sneakers
-            </label>
-
-            <label className="sidebar-label-container">
-                <input type="radio"  name="test" />
-                <span className="checkmark"></span> Flats
-            </label>
-
-            <label className="sidebar-label-container">
-                <input type="radio"  name="test" />
-                <span className="checkmark"></span> Sandals
-            </label>
-            <label className="sidebar-label-container">
-                <input type="radio"  name="test" />
-                <span className="checkmark"></span> Heels
-            </label>
+           <Input 
+           handleChange={handleChange}/>
             </div>
     </div>
 }
