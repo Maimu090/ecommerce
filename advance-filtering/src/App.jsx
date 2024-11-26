@@ -12,7 +12,7 @@ import products from "./db/data";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  //input Filter
+  // ----------- Input Filter -----------
   const [query, setQuery] = useState("");
 
   const handleInputChange = (event) => {
@@ -20,16 +20,15 @@ function App() {
   };
 
   const filteredItems = products.filter(
-    (product) =>
-      product.title.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) !==
-      -1
+    (product) => product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
   );
 
+  // ----------- Radio Filtering -----------
   const handleChange = (event) => {
     setSelectedCategory(event.target.value);
   };
 
-  //-------Radio button
+  // ------------ Button Filtering -----------
   const handleClick = (event) => {
     setSelectedCategory(event.target.value);
   };
@@ -37,12 +36,12 @@ function App() {
   function filteredData(products, selected, query) {
     let filteredProducts = products;
 
-    //Filtering Input Items
+    // Filtering Input Items
     if (query) {
       filteredProducts = filteredItems;
     }
 
-    //selected filter
+    // Applying selected filter
     if (selected) {
       filteredProducts = filteredProducts.filter(
         ({ category, color, company, newPrice, title }) =>
@@ -53,6 +52,7 @@ function App() {
           title === selected
       );
     }
+
     return filteredProducts.map(
       ({ img, title, star, reviews, prevPrice, newPrice }) => (
         <Card
@@ -68,10 +68,7 @@ function App() {
     );
   }
 
-  
   const result = filteredData(products, selectedCategory, query);
-
-
 
   return (
     <>
@@ -82,4 +79,5 @@ function App() {
     </>
   );
 }
+
 export default App;

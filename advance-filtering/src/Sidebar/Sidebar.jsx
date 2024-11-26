@@ -3,7 +3,7 @@ import Colors from './Colors/Colors';
 import Price from './Price/Price';
 import './Sidebar.css';
 
-function Sidebar(handleChange) {
+function Sidebar({handleChange}) {
 
 
     return <>
